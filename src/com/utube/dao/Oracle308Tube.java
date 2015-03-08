@@ -1,0 +1,27 @@
+package com.utube.dao;
+
+import javax.naming.*;
+import javax.sql.*;
+
+
+
+public class Oracle308Tube {
+	private static DataSource Oracle308tube = null;
+	private static Context context = null;
+	
+	public static DataSource Oracle308tubeConn() throws Exception{
+		
+		if(Oracle308tube!=null){
+			return Oracle308tube;
+		}
+		try{
+			if (context==null){
+				context = new InitialContext();
+			}
+			Oracle308tube = (DataSource)context.lookup("308tubeOracle");
+		} catch (Exception e){
+			
+		}
+		return Oracle308tube;
+	}
+}
